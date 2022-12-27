@@ -1,0 +1,76 @@
+.signup {
+    width: 100%;
+    height: 120vh;
+    position: relative;
+    background: rgba(0,0,0,.5);
+}
+
+.signup:before {
+    content: '';
+    position: absolute;
+    background: url('../../assets/contact-bg.png') no-repeat center center/cover;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+
+.signup .container .form-container {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ height: 100%;
+ color: #f8f8f8;
+}
+
+.login .p1 {
+    font-size: 1.2rem;
+    width: 50%;
+    margin: 1rem;
+}
+.signup form {
+    width: 50%;
+    margin: 1rem;
+}
+
+.signup .form-container div {
+    display: flex;
+    flex-direction: column;
+}
+
+.signup form label {
+    margin: 2rem 0 .7rem 0;
+    display: none;
+}
+
+.signup form input, textarea {
+    padding: .5rem;
+    font-size: 1.2rem;
+    color: #f8f8f8;
+    margin: 1rem 0;
+    font-family: 'Roboto', sans-serif;
+    background: rgba(0, 0, 0, .15);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, .15);
+}
+
+.signup form input:focus,textarea:focus {
+    outline: var(--primary-color);
+    box-shadow: 0 0 12px 0 var(--primary-color);
+}
+
+@media screen and (max-width: 940px) {
+    .signup form {
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
+
