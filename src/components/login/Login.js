@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import GoogleButton from 'react-google-button'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import './Login.css'
 import {auth, logInWithEmailAndPassword} from '../firebase'
 import {useAuthState} from 'react-firebase-hooks/auth'
@@ -10,7 +10,7 @@ import {GoogleAuthProvider, signInWithRedirect} from 'firebase/auth'
 
 const Login = () => {
     const [user] = useAuthState(auth)
-
+    const navigate = useNavigate()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
@@ -19,6 +19,11 @@ const Login = () => {
     const googleSignIn =() =>{
         const provider = new GoogleAuthProvider()
         signInWithRedirect(auth, provider)
+    }
+
+    const handleLogin = () => {
+        logInWithEmailAndPassword(email, password)}
+        navigate('/')
     }
 
     return (
@@ -35,7 +40,7 @@ const Login = () => {
                             <label>Password</label>
                             <input type="text" placeholder='Enter your Password' autoComplete='current-password' value={password} onChange={(e)=>setPassword(e.target.value)}/>
                         </div>
-                        <button onClick={() => logInWithEmailAndPassword(email, password)}>Log IN</button>
+                        <button onClick={handleLogin}>Log IN</button>
                         <Link to="/signup">
                         <button >Sign Up</button>
                     </Link>
@@ -46,6 +51,6 @@ const Login = () => {
             </div>
         </div>
     )
-}
+
 
 export default Login
